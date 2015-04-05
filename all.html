@@ -32,27 +32,27 @@ function initialize() {
   //infowindow we are going to use
   var inforiver =  new google.maps.InfoWindow({
     content: "River West",//whatever text
-    position: new google.maps.LatLng(41.893958, -87.651375),//will be drawn on the center of the polygon, the center of the bermuda triangle
+    position: new google.maps.LatLng(41.893958, -87.651375),
 });
   //infowindow we are going to use
   var infolin =  new google.maps.InfoWindow({
     content: "Lincoln Park",//whatever text
-    position: new google.maps.LatLng(41.919989, -87.641534),//will be drawn on the center of the polygon, the center of the bermuda triangle
+    position: new google.maps.LatLng(41.919989, -87.641534),
 });
   //infowindow we are going to use
   var infostreet =  new google.maps.InfoWindow({
     content: "Streeterville",//whatever text
-    position: new google.maps.LatLng(41.896467, -87.619995),//will be drawn on the center of the polygon, the center of the bermuda triangle
+    position: new google.maps.LatLng(41.896467, -87.619995),
 });
   //infowindow we are going to use
   var info =  new google.maps.InfoWindow({
     content: "West De Paul ",//whatever text
-    position: new google.maps.LatLng(41.9280900, -87.6667200),//will be drawn on the center of the polygon, the West Depaul 
+    position: new google.maps.LatLng(41.9280900, -87.6667200),
 });
   //infowindow we are going to use
   var infowindow =  new google.maps.InfoWindow({
     content: "Old Town Triangle",//whatever text
-    position: new google.maps.LatLng(41.914674, -87.636509),//will be drawn on the center of the polygon, the West Depaul 
+    position: new google.maps.LatLng(41.914674, -87.636509),
 });
   // Define the LatLng coordinates for the polygon's path.
     var wdepaullocation = [
@@ -381,28 +381,44 @@ function initialize() {
     fillColor: '#86942A',
     fillOpacity: 0.35
   });
-   
-  //mouseover
+	//mouseover
     google.maps.event.addListener(westDePaul,"mouseover",function(){
     this.setOptions({fillColor: "#00FF00"});
     info.open(map,westDePaul),
     infowindow.open(map,oldTownTriangle);//opens the window
 });
-    //mouseover
-    //google.maps.event.addListener(oldTownTriangle,"mouseover",function(){
-    //this.setOptions({fillColor: "#CC0000"});
-    //infowindow.open(map,oldTownTriangle);//opens the window
 
-    //mouseover
-    google.maps.event.addListener(street,"mouseover",function(){
-    this.setOptions({fillColor: "#00CC00"});
-    infostreet.open(map,street);//opens the window
+
+	  //mouseover
+    google.maps.event.addListener(oldTownTriangle,"mouseover",function(){
+    this.setOptions({fillColor: "#00FF00"});
+    info.open(map,oldTownTriangle);//opens the window
 });
-      //mouseover
+   //mouseover
+    google.maps.event.addListener(oldTownTriangle,"mouseover",function(){
+    this.setOptions({fillColor: "#00FF00"});
+    info.open(map,oldTownTriangle);//opens the window
+});
+
+	  //mouseover
     google.maps.event.addListener(lincoln,"mouseover",function(){
-    this.setOptions({fillColor: "#00CC00"});
+		this.setOptions({fillColor: "#00CC00"});
     infolin.open(map,lincoln);//opens the window
 });
+    //mouseout
+    google.maps.event.addListener(lincoln,"mouseout",function(){
+    this.setOptions({fillColor: "#00CC00"});
+    infolin.close();//closes the window
+});
+
+
+    
+    //mouseout
+    google.maps.event.addListener(oldTownTriangle,"mouseout",function(){
+    this.setOptions({fillColor: "#FF0000"});
+    info.close();//closes the window
+});
+      
       //mouseover
     google.maps.event.addListener(riverWest,"mouseover",function(){
     this.setOptions({fillColor: "#86942A"});
@@ -414,21 +430,13 @@ function initialize() {
     this.setOptions({fillColor: "#FF0000"});
     info.close();//closes the window
 });
-        //mouseout
-    google.maps.event.addListener(oldTownTriangle,"mouseout",function(){
-    this.setOptions({fillColor: "#CC0000"});
-    infowindow.close();//closes the window
-}); 
+
     //mouseout
     google.maps.event.addListener(street,"mouseout",function(){
     this.setOptions({fillColor: "#00CC00"});
     infostreet.close();//closes the window
 });
-      //mouseout
-    google.maps.event.addListener(lincoln,"mouseout",function(){
-    this.setOptions({fillColor: "#00CC00"});
-    infolin.close();//closes the window
-});
+     
     //mouseout
     google.maps.event.addListener(riverWest,"mouseout",function(){
     this.setOptions({fillColor: "#86942A"});

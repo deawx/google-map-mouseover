@@ -23,19 +23,19 @@ function initialize() {
     center: new google.maps.LatLng(24.886436490787712, -70.2685546875),
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
-  //the object name   
+  //POLYGON 
   var bermudaTriangle;
-  //infowindow we are going to use
-  var infowindow =  new google.maps.InfoWindow({
-    content: "Hello World!",//whatever text
+  //INFOWINDOW
+  var iwBermudaTriangle =  new google.maps.InfoWindow({
+    content: "Bermuda Triangle",//whatever text
     position: new google.maps.LatLng(24.886436490787712, -70.2685546875),//will be drawn on the center of the polygon, the center of the bermuda triangle
 });
-   
+   //MAP
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-  // Define the LatLng coordinates for the polygon's path.
-    var triangleCoords = [
+  // COORDINATES: defines the LatLng coordinates for the polygon's path.
+    var coordsBermudaTriangle = [
     new google.maps.LatLng(25.774252, -80.190262),
     new google.maps.LatLng(18.466465, -66.118292),
     new google.maps.LatLng(32.321384, -64.75737),
@@ -45,7 +45,7 @@ function initialize() {
   // Construct the polygon.
     bermudaTriangle = new google.maps.Polygon({
    
-    paths: triangleCoords,
+    paths: coordsBermudaTriangle,
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
     strokeWeight: 2,
@@ -53,15 +53,15 @@ function initialize() {
     fillOpacity: 0.35
   });
    
-  //mouseover
+    //mouseover
     google.maps.event.addListener(bermudaTriangle,"mouseover",function(){
     this.setOptions({fillColor: "#00FF00"});
-    infowindow.open(map,bermudaTriangle);//opens the window
+    iwBermudaTriangle.open(map,bermudaTriangle);//iwBermudaTriangle is the infowindow associated to polygon bermudaTriangle
 });
     //mouseout
     google.maps.event.addListener(bermudaTriangle,"mouseout",function(){
     this.setOptions({fillColor: "#FF0000"});
-    infowindow.close();//closes the window
+    iwBermudaTriangle.close();//closes the infowindow
 });
  
 
