@@ -53,12 +53,12 @@ function initialize() {
     fillOpacity: 0.35
   });
    
-    //mouseover
+    //MOUSEOVER
     google.maps.event.addListener(bermudaTriangle,"mouseover",function(){
     this.setOptions({fillColor: "#00FF00"});
     iwBermudaTriangle.open(map,bermudaTriangle);//iwBermudaTriangle is the infowindow associated to polygon bermudaTriangle
 });
-    //mouseout
+    //MOUSEOUT
     google.maps.event.addListener(bermudaTriangle,"mouseout",function(){
     this.setOptions({fillColor: "#FF0000"});
     iwBermudaTriangle.close();//closes the infowindow
