@@ -24,21 +24,25 @@
 				};
 				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 				//POLYGON   
-				var buenaPark;//
-				var goldCoast;//
-				var lakeview;//
-				var lakeviewEast;//
-				var lincolnPark;//
-				var loop;  //
-				var oldTown;//
-				var oldTownTriangle;//
-				var riverWest;//
-				var nearNorth;//
-				var streeterville;//
-				var uptown;
-				var westDePaul; //
-				var westLoopGate;
-				var wrigleyville;
+				var buenaPark;// 1
+				var goldCoast;// 2	
+				var lakeview;// 3
+				var lakeviewEast;// 4
+				var lincolnPark;// 5
+				var loop;  // 6
+				var nearNorth;// 7
+				var nearWestSide;// 8
+				var oldTown;// 9
+				var oldTownTriangle;// 10
+				var riverNorth;// 11
+				var riverWest;// 12
+				var southLoop;// 13
+				var streeterville;// 14
+				var uptown;// 15
+				var westDePaul;//16
+				var westLoopGate;//17
+				var wickerPark;//18
+				var wrigleyville;//19
 				
 				
 				
@@ -101,6 +105,7 @@
 				
 				//COORDINATES
 				var coordsBuenaPark = [
+				
 				new google.maps.LatLng(41.9544510414955,-87.65686300330511), new google.maps.LatLng(41.9544522448008,-87.6566801731631),
 				new google.maps.LatLng(41.9544528370784,-87.65659023553221), new google.maps.LatLng(41.9544528370568,-87.6565902318561),
 				new google.maps.LatLng(41.9544620522099,-87.65613555630679), new google.maps.LatLng(41.9544652984513,-87.65597536628199), 
@@ -1323,6 +1328,7 @@
 					this.setOptions({fillColor: "#7F6C8A"});
 					iwGoldCoast.close();//closes the infowindow
 				});
+				
 				//mouseover
 				google.maps.event.addListener(lakeview,"mouseover",function(){
 					this.setOptions({fillColor: "#7F6C8A"});
@@ -1436,7 +1442,7 @@
 				//mouseover
 				google.maps.event.addListener(streeterville,"mouseover",function(){
 					this.setOptions({fillColor: "#86942A"});
-					iwStreeterville.open(map,riverWest);
+					iwStreeterville.open(map,streeterville);
 				});
 				//mouseout
 				google.maps.event.addListener(streeterville,"mouseout",function(){
