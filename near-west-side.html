@@ -29,7 +29,7 @@ function initialize() {
   //infowindow we are going to use
 
   //infowindow we are going to use
-  var info1 =  new google.maps.InfoWindow({
+  var iwNearWestSide =  new google.maps.InfoWindow({
     content: "Near West Side",//whatever text
     position: new google.maps.LatLng(41.9280900, -87.6667200),//will be drawn on the center of the polygon, the Near West Sid
 });
@@ -38,7 +38,7 @@ function initialize() {
   
 
    // Define the LatLng coordinates for the polygon's path.
-    var nearWestSideLocation = [ 
+    var coordsNearWestSideLocation = [ 
     new google.maps.LatLng(-87.6485670452673,41.883125379227), new google.maps.LatLng( -87.6486910316325,41.8831234738463), 
     new google.maps.LatLng(-87.6491007850294,41.8831163660088), new google.maps.LatLng( -87.6495937722604,41.8831073373727),
     new google.maps.LatLng(-87.6497358152541,41.8831046569192), new google.maps.LatLng( -87.6500536685613,41.8830986585851), 
