@@ -1,0 +1,118 @@
+			
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<title>West DePaul</title>
+		<style>
+			html, body, #map-canvas {
+			height: 100%;
+			margin: 0px;
+			padding: 0px
+			}
+		</style>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+		<script>
+			//This example creates a simple polygon representing the Bermuda Triangle.
+			//"mouseover" to change the polygon color and display an infowindow
+			//"mouseout" closes whatever mouseover did
+			
+			function initialize() {
+				var mapOptions = {
+					zoom: 13,
+					center: new google.maps.LatLng(41.8833,-87.6333),
+				};
+				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+				//Variable
+				var westDePaul; 
+				
+				//InfoWindow
+				var iwWestDePaul =  new google.maps.InfoWindow({
+					content: "West DePaul",//whatever text
+					position: new google.maps.LatLng(41.9280900, -87.6667200),
+				});
+				// Coordinates
+				var coordWestDePaul = [
+				
+				new google.maps.LatLng(41.9251613987475, -87.6673944548064), new google.maps.LatLng(41.9251672020936, -87.6669891514086), 
+				new google.maps.LatLng(41.9251754965428, -87.6664097159302 ), new google.maps.LatLng(41.9251834997058, -87.6657685488089),
+				new google.maps.LatLng(41.9251883213583, -87.6653821432083), new google.maps.LatLng(41.9251974711875, -87.6648135754607),
+				new google.maps.LatLng(41.925200568299, -87.6645738954779), new google.maps.LatLng(41.9252074765661, -87.66403914326671),
+				new google.maps.LatLng(41.9252177969811, -87.6633274460354), new google.maps.LatLng(41.9255554191092, -87.6633431571139),
+				new google.maps.LatLng(41.9256721762944, -87.66334622754719), new google.maps.LatLng(41.9261302300198, -87.66335827254289), 
+				new google.maps.LatLng(41.9268294537781, -87.6633763491935), new google.maps.LatLng(41.9270322000996, -87.6633827180965),
+				new google.maps.LatLng(41.927388444656, -87.6633939089696), new google.maps.LatLng(41.9279390708112, -87.66341236202901),
+				new google.maps.LatLng(41.9282558434547, -87.6634229783389), new google.maps.LatLng(41.9286141685542, -87.6634344432524),
+				new google.maps.LatLng(41.9288482682236, -87.66344337396841), new google.maps.LatLng(41.9291934178208, -87.66345777130439),
+				new google.maps.LatLng(41.9294064096645, -87.66346466733251), new google.maps.LatLng(41.9297732219457, -87.66347635507211),
+				new google.maps.LatLng(41.9302208262031, -87.6634906175676), new google.maps.LatLng(41.9303627952698, -87.6634953333882),
+				new google.maps.LatLng(41.9306650922156, -87.6635053737856), new google.maps.LatLng(41.9311370686698, -87.6635210508072),
+				new google.maps.LatLng(41.931206933882, -87.6635233716022), new google.maps.LatLng(41.9314909789895, -87.6635312044681),
+				new google.maps.LatLng(41.9316313200915, -87.6635353924581), new google.maps.LatLng(41.9316678748096, -87.6635364833445),
+				new google.maps.LatLng(41.9318635489512, -87.6635431093074), new google.maps.LatLng(41.9320108057563, -87.6635481444862),
+				new google.maps.LatLng(41.9320474478572, -87.6635493969073), new google.maps.LatLng(41.9321647600641, -87.6635534083979),
+				new google.maps.LatLng(41.9324804626355, -87.6635680006154), new google.maps.LatLng(41.9324702279424, -87.6641838838399),
+				new google.maps.LatLng(41.9324688183806, -87.6642686715725), new google.maps.LatLng(41.9324665348122, -87.66441188072611),
+				new google.maps.LatLng(41.9324607983818, -87.6647715815343), new google.maps.LatLng(41.9324414331448, -87.6659848700579),
+				new google.maps.LatLng(41.9324399822382, -87.6660757580637), new google.maps.LatLng(41.9324281130455, -87.6667026008697),
+				new google.maps.LatLng(41.9324211646558, -87.6670694781094), new google.maps.LatLng(41.9324209280188, -87.6670859210887),
+				new google.maps.LatLng(41.9324194142307, -87.6671911425489), new google.maps.LatLng(41.93241442937, -87.66753756723941),
+				new google.maps.LatLng(41.9324108178384, -87.6677885068552), new google.maps.LatLng(41.9324107980626, -87.6677901608512),
+				new google.maps.LatLng(41.9324078755354, -87.6680333693438), new google.maps.LatLng(41.9324035409777, -87.6683940086518),
+				new google.maps.LatLng(41.9319801964104, -87.6683761061109), new google.maps.LatLng(41.9319727824221, -87.6683759765785),
+				new google.maps.LatLng(41.9313946575899, -87.66836587065021), new google.maps.LatLng(41.9306561995186, -87.6683381643698),
+				new google.maps.LatLng(41.9305623190601, -87.6683346420333), new google.maps.LatLng(41.9301200234569, -87.668318803227),
+				new google.maps.LatLng(41.9294135421068, -87.6682935814292), new google.maps.LatLng(41.9292214938844, -87.6682875380952),
+				new google.maps.LatLng(41.9291659407032, -87.6682857900135), new google.maps.LatLng(41.9289884918633, -87.66827976889481),
+				new google.maps.LatLng(41.9287762092273, -87.6682715203022), new google.maps.LatLng(41.9285228297355, -87.6682616745166),
+				new google.maps.LatLng(41.9273482716339, -87.6682231989743), new google.maps.LatLng(41.9269637106758, -87.66820925763859),
+				new google.maps.LatLng(41.9262444229927, -87.66818318162611),new google.maps.LatLng(41.9260564345266, -87.6681768173484),
+				new google.maps.LatLng(41.9256166064499, -87.66816192740249),new google.maps.LatLng(41.9253440586994, -87.66815270040151),
+				new google.maps.LatLng(41.9251515798274, -87.6681458148089), new google.maps.LatLng(41.9251613987475, -87.6673944548064), 
+				];
+				
+				
+				
+				
+				
+			
+				// Construct the polygon.
+				westDePaul = new google.maps.Polygon({
+					
+					paths: coordWestDePaul,
+					strokeColor: '#FF0000',
+					strokeOpacity: 0.8,
+					strokeWeight: 2,
+					fillColor: '#FF0000',
+					fillOpacity: 0.35
+				});
+			
+				//mouseover
+				google.maps.event.addListener(westDePaul,"mouseover",function(){
+					this.setOptions({fillColor: "#00FF00"});
+					iwWestDePaul.open(map, westDePaul);//opens the window
+				});
+				
+					//mouseout
+					google.maps.event.addListener(westDePaul,"mouseout",function(){
+					this.setOptions({fillColor: "#00CC00"});
+					iwWestDePaul.close();//closes the window
+					});
+								
+					
+					
+					westDePaul.setMap(map);
+					
+					
+					
+				}
+				
+				google.maps.event.addDomListener(window, 'load', initialize);
+				
+			</script>
+		</head>
+		<body>
+			<div id="map-canvas"></div>
+		</body>
+	</html>	
